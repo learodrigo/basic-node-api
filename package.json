@@ -1,0 +1,25 @@
+{
+  "name": "basic_node_api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "homepage": "https://github.com/learodrigo/basic-node-api#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/learodrigo/basic-node-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/learodrigo/basic-node-api/issues"
+  },
+  "author": "Lea Rodrigo",
+  "license": "ISC",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {}
+}
