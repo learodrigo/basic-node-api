@@ -1,68 +1,72 @@
-const words = {
-  "rainbow": 5,
-  "unicorn": 3,
-  "doom": -3,
-  "gloom": -2
-}
-
-console.log('------------------')
+console.log('================================')
 console.log('Basic Node API')
 console.log('Server is running.')
-console.log('------------------')
+console.log('================================')
 
+// REQUIRES
 const express = require('express')
+const fs = require('fs')
+
+// LOADING JSON
+const data = fs.readFileSync('./words.json')
+const words = JSON.parse(data)
+
+// CONNECTION
 const app = express()
 const server = app.listen(3000, () => {
-  console.log('Listening...')
-  console.log('------------------')
   console.log('Connect to http://localhost:3000')
   console.log('Press Ctrl+C to exit')
+  console.log('================================')
 })
 
-// Uses static public/ content
+// APP DEFAULT STATIC
 app.use(express.static('public'))
 
-/* ----------- */
-/*   ROUTES    */
-/* ----------- */
-// Example route
+// ROUTES
 app.get('/example', (request, response) => {
   response.send('This is an response send example')
 })
 
-// Adding a new score
 app.get('/add/:word/:score?', (request, response) => {
   const word = request.params.word
   const score = Number(request.params.score)
-  let reply
+  let reply = {}
 
-  if (!score) {
+  if (!score && score !== 0) {
     reply = {
-      msg: 'Score is required, please add it to the URL to add the pair'
+      word: word,
+      score: score,
+      status: 'invalid',
+      success: false,
+      failed: true,
+      msg: `'${word}': Score is required, please add it to the URL to add the pair`
     }
+    response.send(reply)
   } else {
-    if (!words[word]) {
-      words[word] = score
-    } else {
-      words[word] = (words[word] + score) / 2
-    }
-    reply = {
-      msg: 'Word was successfully sumbitted! Thanks for you!'
-    }
-  }
+    words[word] = (!words[word]) ? score : (words[word] + score) / 2
 
-  response.send(reply)
+    const dataString = JSON.stringify(words, null, 2)
+    fs.writeFile('./words.json', dataString, () => {
+      reply = {
+        word: word,
+        score: score,
+        status: 'success',
+        success: true,
+        failed: false,
+        msg: `Word: '${word}' was added successfully`
+      }
+      response.send(reply)
+    })
+  }
 })
 
-// Listing all entries
 app.get('/all', (request, response) => {
   response.send(words)
 })
 
-// Search
 app.get('/search/:word', (request, response) => {
   const word = request.params.word
-  let reply
+  let reply = {}
 
   if (words[word]) {
     reply = {
