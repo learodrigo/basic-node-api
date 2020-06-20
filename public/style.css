@@ -4,6 +4,7 @@ body {
   font-family: monospace;
   font-size: 16px;
   margin: 0;
+  overflow: hidden;
   padding: 0;
 }
 
@@ -14,17 +15,47 @@ body {
 .container {
   display: block;
   height: auto;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 90%;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.left p {
+  width: 500px;
+}
+
+.left a {
+  color: black;
+  font-weight: bold;
+}
+.left a:hover {
+  text-decoration: line-through;
+}
+
 input,
-input:active {
-  border: 0.5px solid lightgray;
+input:active,
+textarea {
+  border: 0.5px solid gray;
   border-radius: 8px;
   height: 36px;
   padding: 2px 8px;
-  width: 50%;
+  width: 100%;
+}
+
+textarea {
+  height: 85px;
+}
+
+button {
+  background-color: #003068;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  padding: 8px 16px;
 }
 
 .error {

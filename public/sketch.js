@@ -1,5 +1,5 @@
 function setup () {
-  createCanvas(windowWidth, 400)
+  createCanvas(windowWidth, 340)
   drawData()
   handleOnSubmit()
   handleOnAnalize()
@@ -62,17 +62,20 @@ function drawData () {
   loadJSON('/all', data => {
     background(51)
     const keys = Object.keys(data)
-    const threshold = 48
+    const threshold = 10
 
     for (let i = 0; i < keys.length; i++) {
-      let word = keys[i]
-      let score = data[word]
-      let x = random(threshold, width - threshold)
-      let y = random(threshold, height - threshold)
-      fill(255)
-      textFont('monospace')
-      textSize(score * 7)
-      text(word, x, y)
+      let words = data[keys[i]]
+
+      Object.entries(words).forEach(([key, value]) => {
+        let score = value
+        let x = random(threshold, width - threshold)
+        let y = random(threshold, height - threshold)
+        fill(255)
+        textFont('monospace')
+        textSize(score * 1.5)
+        text(key, x, y)
+      })
     }
   })
 }
