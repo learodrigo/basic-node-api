@@ -42,6 +42,15 @@ function handleOnAnalize () {
 }
 
 function dataPosted (result) {
+  let greetings = select('#greetings')
+  let scoreDisplay = select('#scoreDisplay')
+  let empty = select('#empty')
+  let listWords = select('#listWords')
+  greetings.html(result.msg)
+  scoreDisplay.html('')
+  scoreDisplay.html('Your total score is: ', result.score)
+  empty.html('Check the console for details')
+  listWords.html(JSON.stringify(result.words))
   console.log(result)
 }
 
