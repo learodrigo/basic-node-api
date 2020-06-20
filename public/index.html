@@ -12,27 +12,24 @@
     <div class="container">
       <div class="flex">
         <div class="left">
-          <h1>You have mail</h1>
-          <h2>Learning about node API</h2>
-          <p>
-            <input class="mb-8" type="text" name="word" id="word" placeholder="Word">
-            <br>
-            <input class="mb-8" type="number" name="score" id="score" placeholder="Score">
-            <br>
-            <button type="button" name="button" id="submit">Submit</button>
-          </p>
-        </div>
-        <div class="right">
-          <ul>
-            <li>
-              <a href="/all">Check 'db'</a>
-            </li>
-            <li>
-              <a href="/add">Access and add your word</a>
-            </li>
-          </ul>
-          <p>For adding a word, go to the link and append to the url /word/score with your chosen word and score</p>
-        </div>
+            <h1>You have mail</h1>
+            <h2>Learning about node API</h2>
+            <h3><a href="/all">Check the whole list</a></h4>
+          </div>
+
+          <div class="right">
+            <p>
+              <input class="mb-8" type="text" name="word" id="word" placeholder="Word">
+              <br>
+              <input class="mb-8" type="number" name="score" id="score" placeholder="Score">
+              <br>
+              <button type="button" name="button" id="submit">Submit</button>
+            </p>
+            <p>
+              <textarea id="textareainput" class="block mb-8" name="textinput" rows="5" cols="55">I am happy today because I saw a rainbow and some kittens</textarea>
+              <button type="button" name="button" id="analyze">Analyze</button>
+            </p>
+          </div>
       </div>
     </div>
     <script src="sketch.js"></script>

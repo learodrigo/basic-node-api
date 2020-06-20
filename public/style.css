@@ -7,34 +7,15 @@ body {
   padding: 0;
 }
 
+.block {
+  display: block;
+}
+
 .container {
   display: block;
   height: auto;
   margin: 0 auto;
   width: 90%;
-}
-
-.flex {
-  display: flex;
-}
-
-.flex > div {
-  align-self: flex-end;
-}
-
-.left {
-  width: 40%;
-}
-
-.right {
-  margin-left: 24px;
-  width: 50%
-}
-
-.right ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 input,
