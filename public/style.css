@@ -1,0 +1,55 @@
+html,
+body {
+  box-sizing: border-box;
+  font-family: monospace;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex > div {
+  align-self: flex-end;
+}
+
+.left {
+  width: 40%;
+}
+
+.right {
+  margin-left: 24px;
+  width: 50%
+}
+
+.right ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+input,
+input:active {
+  border: 0.5px solid lightgray;
+  border-radius: 8px;
+  height: 36px;
+  padding: 2px 8px;
+  width: 50%;
+}
+
+.error {
+  border-color: red;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
